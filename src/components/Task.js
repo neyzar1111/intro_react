@@ -1,14 +1,18 @@
-import {useState} from "react";
+// import {useState} from "react";
 
 const Task = ({ task, checkTask}) => {
     return (
-        <div className="task">
-                <input type="checkbox"
+        <div className="task ">
+            <label className="label">
 
+
+                <input type="checkbox"
+                       checked={task.checked}
                        onChange={(e)=>checkTask(e.currentTarget.checked,task.id)}
-                       // onChange={(e)=>setReminder(e.currentTarget.checked)}
+                       className="option-input checkbox"
                 />
             {task.text}
+            </label>
             <p>{task.day}</p>
         </div>
     )

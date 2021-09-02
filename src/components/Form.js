@@ -22,17 +22,28 @@ const Form = ({onAdd, clear}) =>{
 
     return(
         <form className="add-form" onSubmit={onSubmit}>
-            <div className="form-control">
-                <label htmlFor="newTodo">Add new task</label>
+            <div className="form-control todos">
+
                 <input id="newTodo"
+                       className="basic-slide"
                        type="text"
                        placeholder="Add Task"
                        value={text}
                        onChange={(e)=>setText(e.target.value)}
                 />
+                <label htmlFor="newTodo">Add new task:</label>
+            </div>
+            <div className='form-control'>
+                <label className="label">
+                <input type="checkbox"
+                       className="option-input checkbox"
+                       checked={reminder}
+                       value={reminder}
+                       onChange={(e)=>setReminder(e.currentTarget.checked)} />
+                Reminder</label>
             </div>
 
-            <div className="form-control">
+            <div className="form-control ">
                 <label htmlFor="till">Day</label>
                 <input id="till" type="date"
                        value={day}
@@ -42,18 +53,8 @@ const Form = ({onAdd, clear}) =>{
             </div>
 
 
-
-            <div className='form-control'>
-                <label>Reminder</label>
-                <input type="checkbox"
-                       checked={reminder}
-                       value={reminder}
-                       onChange={(e)=>setReminder(e.currentTarget.checked)} />
-
-            </div>
-
             <button type="submit">Save task</button>
-            <button onClick={clear}>Clear</button>
+            <button className="clearBtn" onClick={clear}>Clear</button>
 
 
         </form>
